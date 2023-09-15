@@ -14,7 +14,7 @@ namespace DomainLayer.Maps
         {
             entityTypeBuilder.HasKey(x => x.Id);
             entityTypeBuilder.Property(x => x.CategoryName).IsRequired();
-            entityTypeBuilder.Property(x => x.categoryico).IsRequired();
+            entityTypeBuilder.Property(x => x.categoryico);
         }
     }
 }

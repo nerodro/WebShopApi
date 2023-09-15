@@ -111,16 +111,5 @@ namespace WebShop.Controllers
             }
             return BadRequest();
         }
-        //[HttpPost]
-        //public ActionResult ProductProfile(ProductViewModel model)
-        //{
-        //    Products products = _product.Get(model.Id);
-        //    Company company = _company.Get(products.CompanyId);
-        //    products.ProductName = model.ProductName;
-        //    products.Price = model.Price;
-        //    products.ProductDescription = model.ProductDescription;
-        //    company.CompanyNamme = model.CompanyName;
-        //    return View(model);
-        //}
     }
 }

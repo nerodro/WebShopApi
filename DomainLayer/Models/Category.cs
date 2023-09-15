@@ -9,7 +9,7 @@ namespace DomainLayer.Models
     public class Category : BaseEntity
     {
         public string CategoryName { get; set; } = null!;
-        public string categoryico { get; set; } = null!;
+        public string? categoryico { get; set; }
         public virtual List<Products> Products { get; set; }
         public Category()
         {
