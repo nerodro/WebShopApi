@@ -13,9 +13,8 @@ namespace WebShop.Controllers
 {
     public class CompanyController : ControllerBase
     {
-        private readonly ICompanyService _company;
-        private readonly IProductService _product;
-        private ApplicationContext context;
+        private readonly ICompanyService _company = null!;
+        private readonly IProductService _product = null!;
 
         public CompanyController(ICompanyService company, IProductService product)
         {
@@ -23,7 +22,7 @@ namespace WebShop.Controllers
             this._product = product;
         }
 
-        [HttpGet("GelAllProducts")]
+        [HttpGet("GelAllCompanys")]
         //[Authorize(Roles = "admin, moder,user")]
         public IEnumerable<CompanyViewModel> Index()
         {
@@ -39,6 +38,33 @@ namespace WebShop.Controllers
                         CompanyNamme = u.CompanyNamme,
                     };
                     model.Add(company);
+                });
+            }
+
+            return model;
+        }
+        [HttpGet("GelAllProductsForCompany/{id}")]
+        //[Authorize(Roles = "admin, moder,user")]
+        public IEnumerable<ProductViewModel> AllProductsForComapny(int id)
+        {
+            List<ProductViewModel> model = new List<ProductViewModel>();
+            if (_company != null)
+            {
+                _company.GetAllProduct(id).ToList().ForEach(u =>
+                {
+                    Company company = _company.Get(u.CompanyId);
+                    ProductViewModel product = new ProductViewModel()
+                    {
+                        Id = u.Id,
+                        ProductName = u.ProductName,
+                        ProductNumber = u.ProductNumber,
+                        Price = u.Price,
+                        ProductDescription = u.ProductDescription,
+                        CompanyName = company.CompanyNamme,
+                        CategoryId = (int)u.CategoryId,
+                        productStatus = u.statusProduct
+                    };
+                    model.Add(product);
                 });
             }
 

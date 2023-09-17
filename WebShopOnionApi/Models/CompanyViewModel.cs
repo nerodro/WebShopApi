@@ -8,6 +8,6 @@ namespace WebShop.Models
         [HiddenInput]
         public Int64 Id { get; set; }
         public string CompanyNamme { get; set; } = null!;
-        public string CompanyIdentity { get; set; } = null;
+        public string CompanyIdentity { get; set; } = null!;
     }
 }

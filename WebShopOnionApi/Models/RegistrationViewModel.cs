@@ -9,8 +9,8 @@ namespace WebShop.Models
         [HiddenInput]
         public Int64 Id { get; set; }
         [Display(Name = "First Name")]
-        public string FirstName { get; set; }
-        public string Password { get; set; }
-        public string ConfirmPassword { get; set; }
+        public string FirstName { get; set; } = null!;
+        public string Password { get; set; } = null!;
+        public string ConfirmPassword { get; set; } = null!;
     }
 }

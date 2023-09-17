@@ -6,6 +6,6 @@ namespace WebShop.Models
     {
         [HiddenInput]
         public Int64 Id { get; set; }
-        public string CategoryName { get; set; }
+        public string CategoryName { get; set; } = null!;
     }
 }

@@ -7,6 +7,7 @@
         public int ProductNumber { get; set; } = 0;
         public string? Photos { get; set; }
         public int Price { get; set; } = 0;
+        public int statusProduct { get; set; } = 0;
         public long CompanyId { get; set; }
         public virtual Company Company { get; set; }
         public virtual List<Cart> Cart { get; set; }

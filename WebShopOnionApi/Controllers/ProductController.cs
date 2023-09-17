@@ -10,9 +10,8 @@ namespace WebShop.Controllers
 {
     public class ProductController : ControllerBase
     {
-        private readonly ICompanyService _company;
-        private readonly IProductService _product;
-        private ApplicationContext context;
+        private readonly ICompanyService _company = null!;
+        private readonly IProductService _product = null!;
 
         public ProductController(ICompanyService company, IProductService product)
         {
@@ -37,7 +36,8 @@ namespace WebShop.Controllers
                         Price = u.Price,
                         ProductDescription = u.ProductDescription,
                         CompanyName = company.CompanyNamme,
-                        CategoryId = (int)u.CategoryId
+                        CategoryId = (int)u.CategoryId,
+                        productStatus = u.statusProduct
                     };
                     model.Add(product);
                 });
@@ -45,7 +45,58 @@ namespace WebShop.Controllers
 
             return model;
         }
+        [HttpGet("ViewAllActiveProducts")]
+        public IEnumerable<ProductViewModel> AllActive()
+        {
+            List<ProductViewModel> model = new List<ProductViewModel>();
+            if (_product != null)
+            {
+                _product.GetActive().ToList().ForEach(u =>
+                {
+                    Company company = _company.Get(u.CompanyId);
+                    ProductViewModel product = new ProductViewModel()
+                    {
+                        Id = u.Id,
+                        ProductName = u.ProductName,
+                        ProductNumber = u.ProductNumber,
+                        Price = u.Price,
+                        ProductDescription = u.ProductDescription,
+                        CompanyName = company.CompanyNamme,
+                        CategoryId = (int)u.CategoryId,
+                        productStatus = u.statusProduct
+                    };
+                    model.Add(product);
+                });
+            }
 
+            return model;
+        }
+        [HttpGet("ViewAllHaltProducts")]
+        public IEnumerable<ProductViewModel> AllHalt()
+        {
+            List<ProductViewModel> model = new List<ProductViewModel>();
+            if (_product != null)
+            {
+                _product.GetHalt().ToList().ForEach(u =>
+                {
+                    Company company = _company.Get(u.CompanyId);
+                    ProductViewModel product = new ProductViewModel()
+                    {
+                        Id = u.Id,
+                        ProductName = u.ProductName,
+                        ProductNumber = u.ProductNumber,
+                        Price = u.Price,
+                        ProductDescription = u.ProductDescription,
+                        CompanyName = company.CompanyNamme,
+                        CategoryId = (int)u.CategoryId,
+                        productStatus = u.statusProduct
+                    };
+                    model.Add(product);
+                });
+            }
+
+            return model;
+        }
         [HttpPost("CreateProduct")]
         public async Task<ActionResult<ProductViewModel>> AddProduct(ProductViewModel model)
         {
@@ -56,7 +107,8 @@ namespace WebShop.Controllers
                 Price = model.Price,
                 ProductDescription = model.ProductDescription,
                 ProductNumber = model.ProductNumber,
-                CategoryId = model.CategoryId
+                CategoryId = model.CategoryId,
+                statusProduct = model.productStatus
             };
             _product.Create(products);
             if (products.Id > 0)
@@ -80,6 +132,21 @@ namespace WebShop.Controllers
             if (products.Id > 0)
             {
                 return Ok(model);
+            }
+            return BadRequest();
+        }
+        [HttpPut("EditStatusProduct/{Id},{statusId}")]
+        public async Task<ActionResult<ProductViewModel>> EditStatusProduct(int Id, int statusId)
+        {
+            ProductViewModel model = new ProductViewModel();
+            Products products = _product.Get(Id);
+            model.productStatus = statusId;
+            products.statusProduct = model.productStatus;
+            products.ModifiedDate = DateTime.UtcNow;
+            _product.UpdateStatus(products);
+            if (products.Id > 0)
+            {
+                return Ok(model.productStatus);
             }
             return BadRequest();
         }

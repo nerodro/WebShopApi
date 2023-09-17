@@ -6,7 +6,7 @@ namespace WebShop.Models
 {
     public class LoginViewModel
     {
-        public string FirstName { get; set; }
-        public string Password { get; set; }
+        public string FirstName { get; set; } = null!;
+        public string Password { get; set; } = null!;
     }
 }

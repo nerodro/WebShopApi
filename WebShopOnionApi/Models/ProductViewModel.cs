@@ -13,7 +13,8 @@ namespace WebShop.Models
         public string? Photos { get; set; }
         public int Price { get; set; } = 0;
         public long CompanyId { get; set; }
-        public string CompanyName { get; set; } = null!;
+        public string? CompanyName { get; set; }
         public int CategoryId { get; set; } = 0!;
+        public int productStatus { get; set; } = 0!;
     }
 }

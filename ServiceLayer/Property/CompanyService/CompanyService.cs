@@ -15,7 +15,6 @@ namespace ServiceLayer.Property.CompanyService
     {
         private IProducts<Products> _products;
         private ICompany<Company> _company;
-        private readonly ApplicationContext _context;
         public CompanyService(IProducts<Products> products, ICompany<Company> company)
         {
             this._company = company;
@@ -24,7 +23,7 @@ namespace ServiceLayer.Property.CompanyService
 
         public IEnumerable<Products> GetAllProduct(long Id)
         { 
-            return _context.Products.Where(x => x.CompanyId == Id);
+            return _products.GetAll().Where(x => x.CompanyId == Id);
         }
 
         public IEnumerable<Company> GetAll()

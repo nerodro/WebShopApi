@@ -11,9 +11,8 @@ namespace WebShopOnionApi.Controllers
     [ApiController]
     public class CategoryController : ControllerBase
     {
-        private readonly IProductService _product;
-        private readonly ICategoryService _category;
-        private ApplicationContext context;
+        private readonly IProductService _product = null!;
+        private readonly ICategoryService _category = null!;
 
         public CategoryController(IProductService product, ICategoryService category)
         {

@@ -16,6 +16,7 @@ namespace DomainLayer.Maps
             entityTypeBuilder.HasKey(x => x.Id);
             entityTypeBuilder.Property(x => x.CompanyNamme).IsRequired();
             entityTypeBuilder.Property(x => x.CompanyIdentity).IsRequired();
+           // entityTypeBuilder.Property(x => x.CompanyIdentity).IsRequired();
             //entityTypeBuilder.HasOne(t => t.Products).WithOne(u => u.Company).HasForeignKey<Products>(x => x.CompanyId);
         }
     }

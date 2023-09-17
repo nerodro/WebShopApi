@@ -9,16 +9,16 @@ namespace TestOnion.Models
         [HiddenInput]
         public Int64 Id { get; set; }
         [Display(Name = "First Name")]
-        public string FirstName { get; set; }
+        public string FirstName { get; set; } = null!;
         [Display(Name = "Last Name")]
-        public string LastName { get; set; }
-        public string Name { get; set; }
-        public string Address { get; set; }
+        public string LastName { get; set; } = null!;
+        public string Name { get; set; } = null!;
+        public string Address { get; set; } = null!;
         [Display(Name = "User Name")]
-        public string UserName { get; set; }
-        public string Email { get; set; }
-        public long RoleId { get; set; }
-        public string Password { get; set; }
+        public string UserName { get; set; } = null!;
+        public string Email { get; set; } = null!;
+        public long RoleId { get; set; } = 0!;
+        public string Password { get; set; } = null!;
         [Display(Name = "Added Date")]
         public DateTime AddedDate { get; set; }
     }

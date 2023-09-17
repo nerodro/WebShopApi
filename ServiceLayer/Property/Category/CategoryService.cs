@@ -15,7 +15,6 @@ namespace ServiceLayer.Property.Category
     {
         private IProducts<Products> _products;
         private ICategories<DomainLayer.Models.Category> _categoryService;
-        private readonly ApplicationContext _context;
         public CategoryService(IProducts<Products> products, ICategories<DomainLayer.Models.Category> categories)
         {
             this._products = products;

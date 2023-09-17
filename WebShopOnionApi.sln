@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RepositoryLayer", "Reposito
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServiceLayer", "ServiceLayer\ServiceLayer.csproj", "{2B5BC4A7-2681-48EC-BDCE-4B23D14F1A15}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebShopOnionApi.Tests", "WebShopOnionApi.Tests\WebShopOnionApi.Tests.csproj", "{B234B8BF-7ED7-46C2-A904-3299B7073AFD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebShopOnionApi.Tests", "WebShopOnionApi.Tests\WebShopOnionApi.Tests.csproj", "{B234B8BF-7ED7-46C2-A904-3299B7073AFD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

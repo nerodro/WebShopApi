@@ -7,8 +7,8 @@ namespace WebShop.Models
         [HiddenInput]
         public Int64 Id { get; set; }
         public int ProductId { get; set; }
-        public string ProductName { get; set; }
+        public string ProductName { get; set; } = null!;
         public int UserId { get; set; }
-        public int Count { get; set; }
+        public int Count { get; set; } = 0!;
     }
 }

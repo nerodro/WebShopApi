@@ -28,6 +28,14 @@ namespace ServiceLayer.Property.ProductServce
         {
             return _products.GetAll();
         }
+        public IEnumerable<Products> GetActive()
+        {
+            yield return _products.GetAll().FirstOrDefault(x => x.statusProduct == 1);
+        }
+        public IEnumerable<Products> GetHalt()
+        {
+            yield return _products.GetAll().FirstOrDefault(x => x.statusProduct == 2);
+        }
 
         public Company GetCompany(long id)
         {
@@ -43,9 +51,20 @@ namespace ServiceLayer.Property.ProductServce
         {
             _products.Create(products);
         }
-        public void Update(Products products)
+        public void UpdateStatus(Products products)
         {
             _products.Update(products);
+        }
+        public void Update(Products products)
+        {
+            if (products.statusProduct == 2)
+            {
+                _products.Update(products);
+            }
+            else
+            {
+                throw new Exception("Активные товары не доступны для рекаторирования");
+            }
         }
 
         public void Delete(long id)
