@@ -83,7 +83,7 @@ namespace WebShop.Controllers
             _company.Create(company1);
             if (company1.Id > 0)
             {
-                return Ok(company);
+                return CreatedAtAction("CompanyProfile", new {id =  company1.Id}, company);
             }
             return BadRequest();
         }
@@ -117,7 +117,7 @@ namespace WebShop.Controllers
             if (id.HasValue && id != 0)
             {
                 Company company = _company.Get(id.Value);
-                model.Id = company.Id;
+                model.Id = (long)id;
                 model.CompanyIdentity = company.CompanyIdentity;
                 model.CompanyNamme = company.CompanyNamme;
                 return new ObjectResult(model);

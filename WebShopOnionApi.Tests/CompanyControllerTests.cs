@@ -19,32 +19,51 @@ namespace WebShopOnionApi.Tests
     [TestClass]
     public class CompanyControllerTests
     {
-        //CompanyController _controller;
-        //ICompanyService _companyService;
-        //IProductService _product;
-        //private IProducts<Products> _products;
-        //private ICompany<Company> _company;
-        //private ICart<Cart> _cart;
-        //private readonly ApplicationContext context;
-        //public CompanyControllerTests()
-        //{
-        //    this._products = new ProductLogic(context);
-        //    this._companyService = new CompanyService(_products, _company);
-        //    this._product = new ProductService(_products, _company, _cart);
-        //    this._controller = new CompanyController(_companyService,_product);
-        //}
-        //[TestMethod]
-        //public void TestAdd()
-        //{
-        //    CompanyViewModel company = new CompanyViewModel()
-        //    {
-        //        CompanyIdentity = "Test",
-        //        CompanyNamme = "Test44",
-        //    };
-        //    var response = _controller.AddCompany(company);
-        //    var createdComp = response as CreatedAtActionResult;
-        //    var comapanys = createdComp.Value as CompanyViewModel;
-        //    Assert.AreEqual(company.CompanyNamme, comapanys.CompanyNamme);
-        //}
+        CompanyController _controller;
+        ICompanyService _companyService;
+        IProductService _productService;
+        private readonly ApplicationContext context;
+        public CompanyControllerTests()
+        {
+            _companyService = new CompanyServiceFake();
+            this._controller = new CompanyController(_companyService, _productService);
+        }
+        [TestMethod]
+        public void TestAdd()
+        {
+            CompanyViewModel company = new CompanyViewModel()
+            {
+                CompanyIdentity = "Test1",
+                CompanyNamme = "Test1",
+            };
+            var createResponse = _controller.AddCompany(company) as CreatedAtActionResult;
+            var item = createResponse.Value as CompanyViewModel;
+            Assert.AreEqual(item.CompanyNamme, company.CompanyNamme);
+
+        }
+        [TestMethod]
+        public void TestAddAbsent()
+        {
+            CompanyViewModel company = new CompanyViewModel()
+            {
+                CompanyIdentity = "Test2",
+                CompanyNamme = "Test2",
+            };
+            var createResponse = _controller.AddCompany(company) as CreatedAtActionResult;
+            var item = createResponse.Value as CompanyViewModel;
+            Assert.AreNotEqual(item.CompanyNamme, "Test3");
+        }
+        [TestMethod]
+        public void TestAddNull()
+        {
+            CompanyViewModel company = new CompanyViewModel()
+            {
+                CompanyIdentity = null,
+                CompanyNamme = null,
+            };
+            var createResponse = _controller.AddCompany(company) as CreatedAtActionResult;
+            var item = createResponse.Value as CompanyViewModel;
+            Assert.IsNull(item.CompanyNamme);
+        }
     }
 }

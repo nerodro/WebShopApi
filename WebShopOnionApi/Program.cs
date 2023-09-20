@@ -20,6 +20,9 @@ using System.Text.Json.Serialization;
 using System.Text.Json;
 using System;
 using TestOnion.Models;
+using ServiceLayer.Property.Roles;
+using RepositoryLayer.Infrascructure.Roles;
+using Prometheus;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -31,6 +34,8 @@ string connection = builder.Configuration.GetConnectionString("DefaultConnection
 
 // добавляем контекст ApplicationContext в качестве сервиса в приложение
 builder.Services.AddDbContext<ApplicationContext>(options => options.UseNpgsql(connection));
+
+//builder.Services.AddHealthChecks().ForwardToPrometheus();
 
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
               .AddCookie(options =>
@@ -46,6 +51,7 @@ builder.Services.AddScoped(typeof(ICompany<>), typeof(CompanyLogic<>));
 builder.Services.AddScoped(typeof(IProducts<>), typeof(ProductLogic<>));
 builder.Services.AddScoped(typeof(ICart<>), typeof(CartLogic<>));
 builder.Services.AddScoped(typeof(ICategories<>), typeof(CategoriesLogic<>));
+builder.Services.AddScoped(typeof(IRoles<>), typeof(RolesLogic<>));
 builder.Services.AddTransient<IUserProfileService, UserProfileService>();
 builder.Services.AddTransient<IUserService, UserService>();
 builder.Services.AddTransient<ILoginService, LoginService>();
@@ -54,12 +60,10 @@ builder.Services.AddTransient<ICompanyService, CompanyService>();
 builder.Services.AddTransient<IProductService, ProductService>();
 builder.Services.AddTransient<ICartService, CartService>();
 builder.Services.AddTransient<ICategoryService, CategoryService>();
+builder.Services.AddTransient<IRoleService, RoleService>();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
-
-
 
 var app = builder.Build();
 
@@ -74,8 +78,24 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+
 app.UseAuthentication();
 app.UseAuthorization();
+
+//app.UseHttpMetrics(options =>
+//{
+//    // Assume there exists a custom route parameter with this name.
+//    options.AddRouteParameter("api-version");
+//});
+app.UseHttpMetrics(options =>
+{
+    options.AddCustomLabel("host", context => context.Request.Host.Host);
+});
+
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapMetrics();
+});
 
 app.MapControllers();
 

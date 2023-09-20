@@ -21,7 +21,6 @@ namespace WebShop.Controllers
         private readonly IUserService userService;
         private readonly IUserProfileService userProfileService;
         private readonly ICategoryService categoryService;
-        private ApplicationContext context;
 
         public UserController(IUserService userService, IUserProfileService userProfileService, ICategoryService category)
         {
