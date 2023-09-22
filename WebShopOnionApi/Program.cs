@@ -74,10 +74,20 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
-app.UseStaticFiles();
+//app.UseHttpsRedirection();
+//app.UseStaticFiles();
 
-app.UseRouting();
+//app.UseRouting();
+
+app.UseCors(policy =>
+{
+    policy.AllowAnyOrigin();
+    policy.AllowAnyHeader();
+    policy.AllowAnyMethod();
+    //policy.WithOrigins("http://localhost:4200/").AllowAnyMethod().AllowAnyHeader();
+    //policy.WithOrigins("http://localhost:4200/").AllowAnyMethod();
+
+});
 
 app.UseAuthentication();
 app.UseAuthorization();
@@ -92,10 +102,12 @@ app.UseHttpMetrics(options =>
     options.AddCustomLabel("host", context => context.Request.Host.Host);
 });
 
-app.UseEndpoints(endpoints =>
-{
-    endpoints.MapMetrics();
-});
+//app.UseEndpoints(endpoints =>
+//{
+//    endpoints.MapMetrics();
+//});
+
+
 
 app.MapControllers();
 

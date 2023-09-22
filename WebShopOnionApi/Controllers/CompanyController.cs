@@ -74,7 +74,7 @@ namespace WebShop.Controllers
 
         [HttpPost("CreateCompany")]
         public ActionResult AddCompany(CompanyViewModel company)
-        {
+        {   
             Company company1 = new Company
             {
                 CompanyNamme = company.CompanyNamme,
@@ -98,7 +98,7 @@ namespace WebShop.Controllers
             _company.Update(company);
             if (company.Id > 0)
             {
-                return Ok(model);
+                return CreatedAtAction("CompanyProfile", new { id = company.Id }, model);
             }
             return BadRequest();
         }

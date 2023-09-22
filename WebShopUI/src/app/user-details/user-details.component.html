@@ -1,0 +1,15 @@
+<div class="bg-body-secondary text-center py-5 rounded-2">
+    <h1 class="dispay-6 fw-bold">DeteilsOfUsers</h1>
+</div>
+<div class="row mt-5">
+    <div class="col-6">
+        <app-user-details-form />
+    </div>
+    <div class="col-6">
+        <ul class="list-group">
+            <li class="list-group-item d-flex justify-content-between align-items-start mb-2 broder px-4 py-3 rounded-3" *ngFor="let pd of service.list">
+                {{pd.firstName}}
+            </li>
+        </ul>
+    </div>
+</div>

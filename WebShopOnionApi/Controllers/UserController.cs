@@ -31,7 +31,7 @@ namespace WebShop.Controllers
 
         [HttpGet("GetAllUsers")]
         //[Authorize(Roles = "Admin, Moder,User")]
-        public IEnumerable<MultiViewModel> Index()
+        public /*IEnumerable<MultiViewModel>*/ IEnumerable<UserViewModel> Index()
         {
             List<UserViewModel> model = new List<UserViewModel>();
             if (userProfileService != null)
@@ -42,31 +42,32 @@ namespace WebShop.Controllers
                     UserViewModel user = new UserViewModel
                     {
                         Id = u.Id,
-                        Name = $"{userProfile.FirstName} {userProfile.LastName}",
+                        FirstName = userProfile.FirstName,
+                        LastName = userProfile.LastName,
                         Email = u.Email,
                         Address = userProfile.Address
                     };
                     model.Add(user);
                 });
             }
-            List<CategoryViewModel> categories = new List<CategoryViewModel>();
-            if (categoryService != null)
-            {
-                categoryService.GetAll().ToList().ForEach(f =>
-                {
-                    Category category = categoryService.Get(f.Id);
-                    CategoryViewModel viewModel = new CategoryViewModel
-                    {
-                        Id = f.Id,
-                        CategoryName = f.CategoryName
-                    };
-                    categories.Add(viewModel);
-                });
-            }
-            MultiViewModel multi = new MultiViewModel();
-            multi.UserViewModels = model;
-            multi.CategoryViewModels = categories;
-            yield return multi;
+            //List<CategoryViewModel> categories = new List<CategoryViewModel>();
+            //if (categoryService != null)
+            //{
+            //    categoryService.GetAll().ToList().ForEach(f =>
+            //    {
+            //        Category category = categoryService.Get(f.Id);
+            //        CategoryViewModel viewModel = new CategoryViewModel
+            //        {
+            //            Id = f.Id,
+            //            CategoryName = f.CategoryName
+            //        };
+            //        categories.Add(viewModel);
+            //    });
+            //}
+            //MultiViewModel multi = new MultiViewModel();
+            //multi.UserViewModels = model;
+            //multi.CategoryViewModels = categories;
+            return model;
         }
 
         [HttpPost("CreateUsers")]

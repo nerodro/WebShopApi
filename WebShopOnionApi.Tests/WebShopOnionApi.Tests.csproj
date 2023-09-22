@@ -26,4 +26,10 @@
     <ProjectReference Include="..\WebShopOnionApi\WebShopOnionApi.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Products\" />
+    <Folder Include="Roles\" />
+    <Folder Include="Categories\" />
+  </ItemGroup>
+
 </Project>

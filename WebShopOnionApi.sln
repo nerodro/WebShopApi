@@ -13,6 +13,26 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServiceLayer", "ServiceLaye
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebShopOnionApi.Tests", "WebShopOnionApi.Tests\WebShopOnionApi.Tests.csproj", "{B234B8BF-7ED7-46C2-A904-3299B7073AFD}"
 EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WebShopUI", "WebShopUI\", "{7B5D85EF-12B3-4B11-AA9E-36FA6BE73F9F}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.8"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_62293"
+		Debug.AspNetCompiler.PhysicalPath = "WebShopUI\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_62293\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_62293"
+		Release.AspNetCompiler.PhysicalPath = "WebShopUI\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_62293\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "62293"
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +59,10 @@ Global
 		{B234B8BF-7ED7-46C2-A904-3299B7073AFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B234B8BF-7ED7-46C2-A904-3299B7073AFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B234B8BF-7ED7-46C2-A904-3299B7073AFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B5D85EF-12B3-4B11-AA9E-36FA6BE73F9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B5D85EF-12B3-4B11-AA9E-36FA6BE73F9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B5D85EF-12B3-4B11-AA9E-36FA6BE73F9F}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B5D85EF-12B3-4B11-AA9E-36FA6BE73F9F}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
