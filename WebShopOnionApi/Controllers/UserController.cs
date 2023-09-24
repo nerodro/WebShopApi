@@ -11,6 +11,7 @@ using System.Text.Json.Serialization;
 using System.Text.Json;
 using TestOnion.Models;
 using WebShop.Models;
+using RepositoryLayer.Infrascructure.Company;
 
 namespace WebShop.Controllers
 {
@@ -45,33 +46,17 @@ namespace WebShop.Controllers
                         FirstName = userProfile.FirstName,
                         LastName = userProfile.LastName,
                         Email = u.Email,
+                        RoleId = (long)u.RoleId,
                         Address = userProfile.Address
                     };
                     model.Add(user);
                 });
             }
-            //List<CategoryViewModel> categories = new List<CategoryViewModel>();
-            //if (categoryService != null)
-            //{
-            //    categoryService.GetAll().ToList().ForEach(f =>
-            //    {
-            //        Category category = categoryService.Get(f.Id);
-            //        CategoryViewModel viewModel = new CategoryViewModel
-            //        {
-            //            Id = f.Id,
-            //            CategoryName = f.CategoryName
-            //        };
-            //        categories.Add(viewModel);
-            //    });
-            //}
-            //MultiViewModel multi = new MultiViewModel();
-            //multi.UserViewModels = model;
-            //multi.CategoryViewModels = categories;
             return model;
         }
 
         [HttpPost("CreateUsers")]
-        public async Task<ActionResult<UserViewModel>> AddUser(UserViewModel model)
+        public async Task<ActionResult<UserViewModel>> CreateUsers(UserViewModel model)
         {
             User userEntity = new User
             {
@@ -91,24 +76,29 @@ namespace WebShop.Controllers
                 }
             };
             userService.CreateUser(userEntity);
-            return Ok(model);
+            return CreatedAtAction("UserProfile", new { id = userEntity.Id }, model);
         }
 
-        [HttpPut("EditUser")]
-        public async Task<ActionResult<UserViewModel>> EditUser(UserViewModel model)
+        [HttpPut("EditUser/{id}")]
+        public async Task<ActionResult<UserViewModel>> EditUser(int id, UserViewModel model)
         {
+            model.Id = id;
             User userEntity = userService.GetUser(model.Id);
-            userEntity.Email = model.Email;
-            userEntity.UserName = model.UserName;
-            userEntity.ModifiedDate = DateTime.UtcNow;
-            UserProfile userProfileEntity = userProfileService.GetUserProfile(model.Id);
-            userProfileEntity.FirstName = model.FirstName;
-            userProfileEntity.LastName = model.LastName;
-            userProfileEntity.Address = model.Address;
-            userProfileEntity.ModifiedDate = DateTime.UtcNow;
-            userEntity.UserProfile = userProfileEntity;
-            userService.UpdateUser(userEntity);
-            return Ok(model);
+            UserProfile userProfileEntity = userProfileService.GetUserProfile(id);
+            if (ModelState.IsValid)
+            {
+                userEntity.Email = model.Email;
+                userEntity.UserName = model.UserName;
+                userEntity.ModifiedDate = DateTime.UtcNow;
+                userProfileEntity.FirstName = model.FirstName;
+                userProfileEntity.LastName = model.LastName;
+                userProfileEntity.Address = model.Address;
+                userProfileEntity.ModifiedDate = DateTime.UtcNow;
+                userEntity.UserProfile = userProfileEntity;
+                userService.UpdateUser(userEntity);
+                return Ok(model);
+            }
+            return BadRequest(ModelState);
         }
         [HttpDelete("DeleteUser/{id}")]
         public async Task<ActionResult<UserViewModel>> DeleteUser(long id)
