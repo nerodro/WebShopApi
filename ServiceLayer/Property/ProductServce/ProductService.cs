@@ -30,11 +30,11 @@ namespace ServiceLayer.Property.ProductServce
         }
         public IEnumerable<Products> GetActive()
         {
-            yield return _products.GetAll().FirstOrDefault(x => x.statusProduct == 1);
+           return _products.GetAll().Where(x => x.statusProduct == 1);
         }
         public IEnumerable<Products> GetHalt()
         {
-            yield return _products.GetAll().FirstOrDefault(x => x.statusProduct == 2);
+            return _products.GetAll().Where(x => x.statusProduct == 2);
         }
 
         public Company GetCompany(long id)

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { UserDetailService } from '../../shared/user-detail.service';
 import { UserDetail } from '../../shared/user-detail.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-details-form',
@@ -9,16 +10,18 @@ import { UserDetail } from '../../shared/user-detail.model';
   styleUrls: ['./user-details-form.component.css']
 })
 export class UserDetailsFormComponent {
-  constructor(public service: UserDetailService){
+  constructor(public service: UserDetailService, private router: Router){
 
   }
   onSubmit(form:NgForm){
     this.service.formSubmitted = true;
     if(form.valid){
     if(this.service.formData.id == 0)
-    this.insertRecord(form)
+    this.insertRecord(form),
+    this.router.navigate(['/user'])
     else
-    this.updateRecord(form)
+    this.updateRecord(form),
+    this.router.navigate(['/user'])
   }
   }
   insertRecord(form:NgForm){
@@ -33,6 +36,9 @@ export class UserDetailsFormComponent {
     })
   }
 }
+  populate(user: UserDetail){
+    this.service.formData = Object.assign({}, user)
+  }
   updateRecord(form:NgForm){
     this.service.formSubmitted = true;
     if(form.valid){

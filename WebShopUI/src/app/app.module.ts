@@ -11,6 +11,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { NavbarComponent } from './core/components/navbar/navbar.component';
 import { ProductDetailsComponent } from './ProductModel/product-details/product-details.component';
 import { ProductDetailsFormComponent } from './ProductModel/product-details/product-details-form/product-details-form.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { ProductDetailsFormComponent } from './ProductModel/product-details/prod
   ],
   imports: [
     BrowserModule,
+    AppRoutingModule,
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule, // required animations module
