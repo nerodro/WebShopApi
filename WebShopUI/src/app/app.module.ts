@@ -12,6 +12,7 @@ import { NavbarComponent } from './core/components/navbar/navbar.component';
 import { ProductDetailsComponent } from './ProductModel/product-details/product-details.component';
 import { ProductDetailsFormComponent } from './ProductModel/product-details/product-details-form/product-details-form.component';
 import { AppRoutingModule } from './app-routing.module';
+import { ProductDetailsAddComponent } from './ProductModel/product-details/product-details-add/product-details-add.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { AppRoutingModule } from './app-routing.module';
     UserDetailsFormComponent,
     NavbarComponent,
     ProductDetailsComponent,
-    ProductDetailsFormComponent
+    ProductDetailsFormComponent,
+    ProductDetailsAddComponent,
   ],
   imports: [
     BrowserModule,
