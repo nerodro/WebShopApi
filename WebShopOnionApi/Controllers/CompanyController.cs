@@ -11,6 +11,8 @@ using WebShop.Models;
 
 namespace WebShop.Controllers
 {
+    [ApiController]
+    [Route("[controller]")]
     public class CompanyController : ControllerBase
     {
         private readonly ICompanyService _company = null!;

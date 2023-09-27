@@ -14,6 +14,7 @@ using WebShop.Models;
 namespace WebShop.Controllers
 {
     [ApiController]
+    [Route("[controller]")]
     public class AccountController : ControllerBase
     {
         private readonly ApplicationContext context;

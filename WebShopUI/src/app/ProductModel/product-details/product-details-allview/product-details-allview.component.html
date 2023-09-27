@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="row">
+        <div class="col-8 offset-2">
+<div class="bg-body-secondary text-center py-5 rounded-2">
+    <h1 class="dispay-6 fw-bold">Список продуктов</h1>
+</div>
+        </div>
+        <div class="col-8 offset-2">
+            <br/>
+            <a class="btn btn-primary"  href="product/addproduct">Добавить новый продукт</a>
+<div class="row mt-5" >
+    <div class="col-sm-3" *ngFor="let pd of service.list">
+      <div class="card">
+        <img ngSrc="blank-profile-picture-973460__340.jpg" width="200" class="card-img-top"  height="200">
+        <div class="card-body">
+          <h5 class="card-title">{{pd.productName}}</h5>
+          <p class="card-text" style="font: Thabit Medium 200; color: gray; font-size: medium;">{{pd.price}}.</p>
+          <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+            <button class="btn btn-primary btn-sm" (click)="populateForm(pd)">Открыть каточку товара</button>
+            <button class="btn btn-success btn-sm" (click)="populateFormEdit(pd)">Редактировать товар</button>
+          </div>
+        </div>
+      </div>
+    <br/>
+    </div>
+  </div>
+</div>
+

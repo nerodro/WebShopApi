@@ -13,6 +13,8 @@ import { ProductDetailsComponent } from './ProductModel/product-details/product-
 import { ProductDetailsFormComponent } from './ProductModel/product-details/product-details-form/product-details-form.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ProductDetailsAddComponent } from './ProductModel/product-details/product-details-add/product-details-add.component';
+import { ProductDetailsAllviewComponent } from './ProductModel/product-details/product-details-allview/product-details-allview.component';
+import { ProductDetailsEditStatusComponent } from './ProductModel/product-details/product-details-edit-status/product-details-edit-status.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,8 @@ import { ProductDetailsAddComponent } from './ProductModel/product-details/produ
     ProductDetailsComponent,
     ProductDetailsFormComponent,
     ProductDetailsAddComponent,
+    ProductDetailsAllviewComponent,
+    ProductDetailsEditStatusComponent,
   ],
   imports: [
     BrowserModule,

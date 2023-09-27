@@ -9,6 +9,7 @@ using WebShop.Models;
 namespace WebShopOnionApi.Controllers
 {
     [ApiController]
+    [Route("[controller]")]
     public class CategoryController : ControllerBase
     {
         private readonly IProductService _product = null!;

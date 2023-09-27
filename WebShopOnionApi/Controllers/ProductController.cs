@@ -3,11 +3,15 @@ using Microsoft.AspNetCore.Mvc;
 using RepositoryLayer;
 using ServiceLayer.Property.CompanyService;
 using ServiceLayer.Property.ProductServce;
+using ServiceLayer.Property.UserProfileService;
+using ServiceLayer.Property.UserService;
 using TestOnion.Models;
 using WebShop.Models;
 
 namespace WebShop.Controllers
 {
+    [ApiController]
+    [Route("[controller]")]
     public class ProductController : ControllerBase
     {
         private readonly ICompanyService _company = null!;
@@ -118,9 +122,10 @@ namespace WebShop.Controllers
             return BadRequest();
         }
 
-        [HttpPut("EditProduct")]
-        public async Task<ActionResult<ProductViewModel>> EditProduct(ProductViewModel model)
+        [HttpPut("EditProduct/{id}")]
+        public async Task<ActionResult<ProductViewModel>> EditProduct(int id, ProductViewModel model)
         {
+            model.Id = id;
             Products products = _product.Get(model.Id);
             products.CompanyId = model.CompanyId;
             products.ProductNumber = model.ProductNumber;

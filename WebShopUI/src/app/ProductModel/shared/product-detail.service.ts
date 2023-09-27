@@ -7,14 +7,15 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class ProductDetailService {
-  url:string = environment.apiBase+'/ViewAllActiveProducts'
-  urlall: string = environment.apiBase+'/ViewAllProducts'
-  urlhalt: string = environment.apiBase+'/ViewAllHaltProducts'
-  urlview: string = environment.apiBase +'/GetSingleProduct'
-  urladd: string = environment.apiBase + '/CreateProduct'
-  urledit: string = environment.apiBase + '/EditProduct'
+  url:string = environment.apiBase+'/Product/ViewAllActiveProducts'
+  urlall: string = environment.apiBase+'/Product/ViewAllProducts'
+  urlhalt: string = environment.apiBase+'/Product/ViewAllHaltProducts'
+  urlview: string = environment.apiBase +'/Product/GetSingleProduct'
+  urladd: string = environment.apiBase + '/Product/CreateProduct'
+  urledit: string = environment.apiBase + '/Product/EditProduct'
   list:ProductDetail[] = []
   formData: ProductDetail = new ProductDetail()
+  formSubmitted:boolean=false;
   constructor(private http:HttpClient) {}
   refreshList(){
     this.http.get(this.url).subscribe({
@@ -23,6 +24,14 @@ export class ProductDetailService {
       },
       error: err => {console.log(err)}
     })
+}
+allProduct(){
+  this.http.get(this.urlall).subscribe({
+    next: res =>{
+      this.list = res as ProductDetail[]
+    },
+    error: err => {console.log(err)}
+  })
 }
   viewproduct(){
     return this.http.get(this.url + '/' + this.formData.id).subscribe({

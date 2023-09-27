@@ -12,6 +12,8 @@ using WebShop.Models;
 
 namespace WebShop.Controllers
 {
+    [ApiController]
+    [Route("[controller]")]
     public class CartController : ControllerBase
     {
         private readonly IProductService _product;

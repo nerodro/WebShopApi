@@ -10,9 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./user-details-form.component.css']
 })
 export class UserDetailsFormComponent {
-  constructor(public service: UserDetailService, private router: Router){
-
-  }
+  constructor(public service: UserDetailService, private router: Router){}
   onSubmit(form:NgForm){
     this.service.formSubmitted = true;
     if(form.valid){
