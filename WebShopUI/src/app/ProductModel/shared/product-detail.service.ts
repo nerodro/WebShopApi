@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { ProductDetail } from './product-detail.model';
 import { HttpClient } from '@angular/common/http';
+import { NgForm } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,7 @@ export class ProductDetailService {
   urlview: string = environment.apiBase +'/Product/GetSingleProduct'
   urladd: string = environment.apiBase + '/Product/CreateProduct'
   urledit: string = environment.apiBase + '/Product/EditProduct'
+  urldelete: string = environment.apiBase + '/Product/DeleteProduct'
   list:ProductDetail[] = []
   formData: ProductDetail = new ProductDetail()
   formSubmitted:boolean=false;
@@ -45,5 +47,14 @@ allProduct(){
   }
   UpdateProduct(){
     return this.http.put(this.urledit + '/' + this.formData.id, this.formData)
+  }
+  DeleteProduct(id:number){
+    return this.http.delete(this.urldelete + '/' + id)
+  }
+
+  resetForm(form:NgForm){
+    form.form.reset();
+    this.formData = new ProductDetail();
+    this.formSubmitted = false;
   }
 }

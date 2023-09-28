@@ -16,8 +16,13 @@
           <h5 class="card-title">{{pd.productName}}</h5>
           <p class="card-text" style="font: Thabit Medium 200; color: gray; font-size: medium;">{{pd.price}}.</p>
           <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-            <button class="btn btn-primary btn-sm" (click)="populateForm(pd)">Открыть каточку товара</button>
+            <button class="btn btn-primary btn-sm" (click)="populateForm(pd)">Открыть товар</button>
             <button class="btn btn-success btn-sm" (click)="populateFormEdit(pd)">Редактировать товар</button>
+          </div>
+          <br/>
+          <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+            <button class="btn btn-danger btn-sm" (click)="deleteproduct(pd.id)">Удалить</button>
+            <button class="btn btn-success btn-sm" (click)="populateFormEdit(pd)">Редактировать статус</button>
           </div>
         </div>
       </div>

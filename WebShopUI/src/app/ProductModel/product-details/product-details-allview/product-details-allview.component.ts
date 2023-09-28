@@ -21,4 +21,14 @@ export class ProductDetailsAllviewComponent {
     this.router.navigate(['/product/addproduct']),
     this.service.formData = Object.assign({},selectedRecord)
   }
+  deleteproduct(id:number){
+    this.service.DeleteProduct(id)
+    .subscribe({
+      next:res=>{
+        window.location.reload()
+       this.service.list = res as ProductDetail[];
+      },
+      error:err=>{console.log(err, this.service.formData)}
+    })
+  }
 }

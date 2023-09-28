@@ -17,6 +17,7 @@ export class ProductDetailsAddComponent {
     this.service.CreateProduct().subscribe({
       next:res=>{
        this.service.list = res as ProductDetail[];
+       this.service.allProduct();
       },
       error:err=>{console.log(err, this.service.formData)}
     })
@@ -28,6 +29,7 @@ updateProduct(form:NgForm){
   this.service.UpdateProduct().subscribe({
     next:res=>{
      this.service.list = res as ProductDetail[];
+     this.service.allProduct();
     },
     error:err=>{console.log(err, this.service.formData)}
   })
@@ -40,7 +42,7 @@ onSubmit(form:NgForm){
   this.addProduct(form),
   this.router.navigate(['product/allproduct'])
   else
-  this.updateProduct(form)
+  this.updateProduct(form),
   this.router.navigate(['product/allproduct'])
   }
 }

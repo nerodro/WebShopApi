@@ -42,7 +42,7 @@ export class UserDetailsFormComponent {
     if(form.valid){
     this.service.UpdateUser().subscribe({
       next:res=>{
-       this.service.list = res as UserDetail[];
+       this.service.list = res as UserDetail[]; 
        this.service.resetForm(form);
       },
       error:err=>{console.log(err, this.service.formData)}

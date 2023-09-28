@@ -8,7 +8,7 @@ import { ProductDetailsAddComponent } from './ProductModel/product-details/produ
 import { ProductDetailsAllviewComponent } from './ProductModel/product-details/product-details-allview/product-details-allview.component';
 
 const routes: Routes = [
-  { path: 'user',component: UserDetailsComponent},
+  { path: 'user',component: UserDetailsComponent },
   { path: 'user/adduser',component: UserDetailsFormComponent},
   { path: 'product',component: ProductDetailsComponent},
   { path: 'product/viewproduct', component: ProductDetailsFormComponent},

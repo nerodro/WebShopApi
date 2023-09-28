@@ -15,6 +15,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { ProductDetailsAddComponent } from './ProductModel/product-details/product-details-add/product-details-add.component';
 import { ProductDetailsAllviewComponent } from './ProductModel/product-details/product-details-allview/product-details-allview.component';
 import { ProductDetailsEditStatusComponent } from './ProductModel/product-details/product-details-edit-status/product-details-edit-status.component';
+import { CompanyDetailsComponent } from './CompanyModule/company-details/company-details.component';
+import { CartDetailsComponent } from './CartModule/cart-details/cart-details.component';
+import { CategoryDetailsComponent } from './CategoryModule/category-details/category-details.component';
+import { RegisterDetailsComponent } from './AccountModule/register-details/register-details.component';
+import { LoginDetailsComponent } from './AccountModule/login-details/login-details.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +32,11 @@ import { ProductDetailsEditStatusComponent } from './ProductModel/product-detail
     ProductDetailsAddComponent,
     ProductDetailsAllviewComponent,
     ProductDetailsEditStatusComponent,
+    CompanyDetailsComponent,
+    CartDetailsComponent,
+    CategoryDetailsComponent,
+    RegisterDetailsComponent,
+    LoginDetailsComponent,
   ],
   imports: [
     BrowserModule,
