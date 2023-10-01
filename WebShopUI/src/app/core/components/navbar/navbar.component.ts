@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AccountDetailService } from 'src/app/AccountModule/shared/account-detail.service';
 
 @Component({
   selector: 'app-navbar',
@@ -6,5 +7,4 @@ import { Component } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
-
 }
