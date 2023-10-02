@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="row">
+        <div class="col-8 offset-0">
+<div class="text-center">
+    <input type="hidden" name="id" [value]="service.formData.id">
+    <h1 class="dispay-6 fw-bold"  >{{service.formData.productName}}</h1>
+</div>
+<div class="mb-3 mt-3 col-6 offset-2">
+    <div class="card mb-3" style="max-width: 540px; border: 0;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="..." class="img-fluid rounded-start" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">Описание:</h5>
+              <p class="card-text">{{service.formData.productDescription}}</p>
+              <p class="card-text"><small class="text-muted">Цена:{{service.formData.price}}</small></p>
+              <p class="card-text"><small class="text-muted">Артикул продукта: {{service.formData.productNumber}}</small></p>
+      </div>
+            </div>
+          </div>
+        </div>
+      </div>
+        </div>
+        <div class="col-8 offset-0">
+            <div class="text-left">
+                <h3 class="dispay-6 fw-bold" >Отзывы</h3>
+        </div>
+</div>

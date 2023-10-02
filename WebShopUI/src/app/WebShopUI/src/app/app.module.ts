@@ -20,7 +20,6 @@ import { CartDetailsComponent } from './CartModule/cart-details/cart-details.com
 import { CategoryDetailsComponent } from './CategoryModule/category-details/category-details.component';
 import { RegisterDetailsComponent } from './AccountModule/register-details/register-details.component';
 import { LoginDetailsComponent } from './AccountModule/login-details/login-details.component';
-import { ProductsForCategoryComponent } from './ProductModel/product-details/products-for-category/products-for-category.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +37,6 @@ import { ProductsForCategoryComponent } from './ProductModel/product-details/pro
     CategoryDetailsComponent,
     RegisterDetailsComponent,
     LoginDetailsComponent,
-    ProductsForCategoryComponent,
   ],
   imports: [
     BrowserModule,

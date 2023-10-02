@@ -12,12 +12,18 @@
         <li class="nav-item">
           <a class="nav-link" href="#">Профиль</a>
         </li>
-        <li class="nav-item dropdown" >
+        <li class="nav-item">
+          {{'FirstName'}}
+        </li>
+        <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Категорий
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href='' *ngFor="let pd of service.list" (click)="populateForm(pd.id)">{{pd.categoryName}}</a></li>
+            <li><a class="dropdown-item" href="#">Категорий</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
           </ul>
         </li>
       </ul>

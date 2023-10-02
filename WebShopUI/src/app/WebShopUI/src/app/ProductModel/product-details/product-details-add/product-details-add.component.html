@@ -1,0 +1,61 @@
+
+<div class="container">
+    <div class="row">
+        <div class="col-8 offset-2">
+<form #form="ngForm" (submit)="onSubmit(form)"
+[class.submitted] = "service.formSubmitted"
+novalidate autocomplete="off">
+    <input type="hidden" name="id" [value]="service.formData.id">
+    <div class="mb-3">
+        <label>Название продукта</label>
+        <input class="form-control form-control-lg"
+        placeholder="Name of User" name="productName"
+        #productName="ngModel"[(ngModel)]="service.formData.productName" required>
+    </div>
+    <div class="mb-3">
+        <label>Компания</label>
+        <input class="form-control form-control-lg"
+        placeholder="Last of User" name="companyId"
+        #companyId="ngModel"[(ngModel)]="service.formData.companyId" required>
+    </div>
+    <div class="mb-3">
+        <label>Описание продукта</label>
+        <input class="form-control form-control-lg"
+        placeholder="Address of User" name="productDescription"
+        #productDescription="ngModel"[(ngModel)]="service.formData.productDescription" required>
+    </div>
+    <div class="mb-3">
+        <label>Уникальный номер</label>
+        <input class="form-control form-control-lg"
+        placeholder="RoleId of User" name="productNumber"
+        #productNumber="ngModel"[(ngModel)]="service.formData.productNumber" required>
+    </div>
+    <div class="row">
+    <div class="mb-3 col-6">
+        <label>Статус продукта</label>
+        <input class="form-control form-control-lg"
+        placeholder="Email of User" name="productStatus"
+        #productStatus="ngModel"[(ngModel)]="service.formData.productStatus" required>
+    </div>
+    <div class="mb-3 col-6">
+        <label>Категория</label>
+        <input class="form-control form-control-lg"
+        placeholder="Email of User" name="categoryId"
+        #categoryId="ngModel"[(ngModel)]="service.formData.categoryId" required>
+    </div>
+    <div class="mb-3 col-6">
+        <label>Цена</label>
+        <input class="form-control form-control-lg"
+        placeholder="Email of User" name="price"
+        #price="ngModel"[(ngModel)]="service.formData.price" required>
+    </div>
+    </div>
+    <div class="d-grid">
+       <button class="btn btn-lg btn-success" type="submit">Submit</button>
+    </div>
+</form>
+        </div>
+    </div>
+</div>
+
+

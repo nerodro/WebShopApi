@@ -1,0 +1,70 @@
+<div class="container">
+    <div class="row">
+        <div class="col-8 offset-2">
+<form #form="ngForm" (submit)="onSubmit(form)"
+[class.submitted] = "service.formSubmitted"
+novalidate autocomplete="off">
+    <input type="hidden" name="id" [value]="service.formData.id">
+    <div class="mb-3">
+        <label>FirstName</label>
+        <input class="form-control form-control-lg"
+        placeholder="Name of User" name="firstName"
+        #firstName="ngModel"[(ngModel)]="service.formData.firstName" required
+        minlength="2">
+    </div>
+    <div class="mb-3">
+        <label>LastName</label>
+        <input class="form-control form-control-lg"
+        placeholder="Last of User" name="lastName"
+        #lastName="ngModel"[(ngModel)]="service.formData.lastName" required
+        minlength="2">
+    </div>
+    <div class="mb-3">
+        <label>Address</label>
+        <input class="form-control form-control-lg"
+        placeholder="Address of User" name="address"
+        #address="ngModel"[(ngModel)]="service.formData.address" required
+        minlength="4">
+    </div>
+    <div class="mb-3">
+        <label>RoleId</label>
+        <input class="form-control form-control-lg"
+        placeholder="RoleId of User" name="roleId"
+        #roleId="ngModel"[(ngModel)]="service.formData.roleId" required>
+    </div>
+    <div class="row">
+    <div class="mb-3 col-6">
+        <label>Email</label>
+        <input class="form-control form-control-lg"
+        placeholder="Email of User" name="email"
+        #email="ngModel"[(ngModel)]="service.formData.email" required>
+    </div>
+    <div class="mb-3 col-6">
+        <label>Name</label>
+        <input class="form-control form-control-lg"
+        placeholder="Email of User" name="name"
+        #name="ngModel"[(ngModel)]="service.formData.name" required>
+    </div>
+    <div class="mb-3 col-6">
+        <label>username</label>
+        <input class="form-control form-control-lg"
+        placeholder="Email of User" name="userName"
+        #userName="ngModel"[(ngModel)]="service.formData.userName" required>
+    </div>
+    <div class="mb-3 col-6">
+        <label>password</label>
+        <input class="form-control form-control-lg"
+        placeholder="Email of User" name="password"
+        #password="ngModel"[(ngModel)]="service.formData.password" type="password" required
+        minlength="6">
+    </div>
+    </div>
+    <div class="d-grid">
+       <button class="btn btn-lg btn-success" type="submit">Submit</button>
+    </div>
+</form>
+        </div>
+    </div>
+</div>
+
+

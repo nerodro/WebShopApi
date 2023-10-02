@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="row">
+        <div class="col-8 offset-2">
+<div class="bg-body-secondary text-center py-5 rounded-2">
+    <h1 class="dispay-6 fw-bold">Список компаний</h1>
+</div>
+        </div>
+
+        <div class="col-8 offset-0">
+<div class="row mt-5" >
+    <div class="col-sm-3" *ngFor="let pd of service.list">
+      <div class="card">
+        <img ngSrc="blank-profile-picture-973460__340.jpg" width="200" class="card-img-top"  height="200">
+        <div class="card-body">
+          <h5 class="card-title">{{pd.companyNamme}}</h5>
+          <p class="card-text" style="font: Thabit Medium 200; color: gray; font-size: medium;">{{pd.companyIdentity}}.</p>
+          <!--<button class="btn btn-primary" (click)="populateForm(pd)">Открыть каточку товара</button>-->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

@@ -15,7 +15,6 @@ export class ProductDetailService {
   urladd: string = environment.apiBase + '/Product/CreateProduct'
   urledit: string = environment.apiBase + '/Product/EditProduct'
   urldelete: string = environment.apiBase + '/Product/DeleteProduct'
-  urlproduct:string = environment.apiBase+'/Category/GetProductsForCategory'
   list:ProductDetail[] = []
   formData: ProductDetail = new ProductDetail()
   formSubmitted:boolean=false;
@@ -41,14 +40,6 @@ allProduct(){
       next: rex =>{
         this.formData
       }
-    })
-  }
-  viewproductcategory(categoryId:number){
-    return this.http.get(this.urlproduct + '/' + categoryId).subscribe({
-      next: res =>{
-        this.list = res as ProductDetail[]
-      },
-      error: err => {console.log(err)}
     })
   }
   CreateProduct(){

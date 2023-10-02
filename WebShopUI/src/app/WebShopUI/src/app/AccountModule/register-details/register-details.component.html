@@ -1,0 +1,34 @@
+<h1>Регистрация</h1>
+
+<div class="container">
+    <div class="row">
+        <div class="col-8 offset-2">
+<form #form="ngForm" (submit)="onSubmit(form)"
+[class.submitted] = "service.formSubmitted"
+novalidate autocomplete="off">
+    <div class="mb-3">
+        <label>Имя пользователя</label>
+        <input class="form-control form-control-lg"
+        placeholder="Name of User" name="login"
+        #productName="ngModel"[(ngModel)]="service.formData.FirstName" required>
+    </div>
+    <div class="mb-3">
+        <label>Пароль</label>
+        <input class="form-control form-control-lg"
+        placeholder="Password of User" name="password"
+        #companyId="ngModel"[(ngModel)]="service.formData.Password" required>
+    </div>
+    <div class="mb-3">
+        <label>Подтверждение пароля</label>
+        <input class="form-control form-control-lg"
+        placeholder="ConfirmPassword" name="ConfirmPassword"
+        #productDescription="ngModel"[(ngModel)]="service.formData.ConfirmPassword" required>
+    </div>
+    <div class="d-grid">
+       <button class="btn btn-lg btn-success" type="submit">Submit</button>
+    </div>
+</form>
+        </div>
+    </div>
+</div>
+

@@ -9,7 +9,6 @@ import { ProductDetailsAllviewComponent } from './ProductModel/product-details/p
 import { CompanyDetailsComponent } from './CompanyModule/company-details/company-details.component';
 import { RegisterDetailsComponent } from './AccountModule/register-details/register-details.component';
 import { LoginDetailsComponent } from './AccountModule/login-details/login-details.component';
-import { ProductsForCategoryComponent } from './ProductModel/product-details/products-for-category/products-for-category.component';
 
 const routes: Routes = [
   { path: 'user',component: UserDetailsComponent },
@@ -18,7 +17,6 @@ const routes: Routes = [
   { path: 'product/viewproduct', component: ProductDetailsFormComponent},
   { path: 'product/addproduct', component: ProductDetailsAddComponent},
   { path: 'product/allproduct', component: ProductDetailsAllviewComponent},
-  { path: 'product/product-for-category',component:ProductsForCategoryComponent },
   { path: 'company/index', component: CompanyDetailsComponent},
   { path: 'account/register', component: RegisterDetailsComponent},
   { path: 'account/login', component:LoginDetailsComponent},
