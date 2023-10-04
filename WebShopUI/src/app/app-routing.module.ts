@@ -10,6 +10,8 @@ import { CompanyDetailsComponent } from './CompanyModule/company-details/company
 import { RegisterDetailsComponent } from './AccountModule/register-details/register-details.component';
 import { LoginDetailsComponent } from './AccountModule/login-details/login-details.component';
 import { ProductsForCategoryComponent } from './ProductModel/product-details/products-for-category/products-for-category.component';
+import { AddCompanyComponent } from './CompanyModule/company-details/add-company/add-company.component';
+import { ViewCompanyComponent } from './CompanyModule/company-details/view-company/view-company.component';
 
 const routes: Routes = [
   { path: 'user',component: UserDetailsComponent },
@@ -20,6 +22,8 @@ const routes: Routes = [
   { path: 'product/allproduct', component: ProductDetailsAllviewComponent},
   { path: 'product/product-for-category',component:ProductsForCategoryComponent },
   { path: 'company/index', component: CompanyDetailsComponent},
+  { path: 'comapy/addcompany', component: AddCompanyComponent},
+  { path: 'company/viewcompany', component: ViewCompanyComponent},
   { path: 'account/register', component: RegisterDetailsComponent},
   { path: 'account/login', component:LoginDetailsComponent},
 ];

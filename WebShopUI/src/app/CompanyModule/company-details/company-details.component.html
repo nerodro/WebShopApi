@@ -5,7 +5,7 @@
     <h1 class="dispay-6 fw-bold">Список компаний</h1>
 </div>
         </div>
-
+        <a class="btn btn-primary"  href="comapy/addcompany">Добавить новый продукт</a>
         <div class="col-8 offset-0">
 <div class="row mt-5" >
     <div class="col-sm-3" *ngFor="let pd of service.list">
@@ -14,6 +14,14 @@
         <div class="card-body">
           <h5 class="card-title">{{pd.companyNamme}}</h5>
           <p class="card-text" style="font: Thabit Medium 200; color: gray; font-size: medium;">{{pd.companyIdentity}}.</p>
+          <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+            <button class="btn btn-primary btn-sm" (click)="populateForm(pd)">Открыть товар</button>
+            <button class="btn btn-success btn-sm" (click)="populateFormEdit(pd)">Редактировать товар</button>
+          </div>
+          <br/>
+          <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+            <button class="btn btn-danger btn" (click)="deleteproduct(pd.id)">Удалить</button>
+          </div>
           <!--<button class="btn btn-primary" (click)="populateForm(pd)">Открыть каточку товара</button>-->
         </div>
       </div>

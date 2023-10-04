@@ -3,6 +3,8 @@ import { environment } from 'src/environments/environment';
 import { ProductDetail } from './product-detail.model';
 import { HttpClient } from '@angular/common/http';
 import { NgForm } from '@angular/forms';
+import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +21,7 @@ export class ProductDetailService {
   list:ProductDetail[] = []
   formData: ProductDetail = new ProductDetail()
   formSubmitted:boolean=false;
-  constructor(private http:HttpClient) {}
+  constructor(private http:HttpClient,public router:Router) {}
   refreshList(){
     this.http.get(this.url).subscribe({
       next: res =>{
@@ -36,12 +38,13 @@ allProduct(){
     error: err => {console.log(err)}
   })
 }
-  viewproduct(){
-    return this.http.get(this.url + '/' + this.formData.id).subscribe({
+  viewproduct(data: ProductDetail) {
+    return this.http.get(this.urlview + '/' + data.id)/*.subscribe({
       next: rex =>{
-        this.formData
+        this.router.navigate(['/product/viewproduct'])
+        this.formData = Object.assign({},data)
       }
-    })
+    })*/
   }
   viewproductcategory(categoryId:number){
     return this.http.get(this.urlproduct + '/' + categoryId).subscribe({

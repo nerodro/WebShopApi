@@ -90,9 +90,10 @@ namespace WebShop.Controllers
             return BadRequest();
         }
 
-        [HttpPut("EditCompany")]
-        public async Task<ActionResult<CompanyViewModel>> EditCompany(CompanyViewModel model)
+        [HttpPut("EditCompany/{id}")]
+        public async Task<ActionResult<CompanyViewModel>> EditCompany(int id,CompanyViewModel model)
         {
+            model.Id = id;
             Company company = _company.Get(model.Id);
             company.CompanyNamme = model.CompanyNamme;
             company.ModifiedDate = DateTime.UtcNow;

@@ -1,0 +1,29 @@
+
+<div class="container">
+    <div class="row">
+        <div class="col-8 offset-2">
+<form #form="ngForm" (submit)="onSubmit(form)"
+[class.submitted] = "service.formSubmitted"
+novalidate autocomplete="off">
+    <input type="hidden" name="id" [value]="service.formData.id">
+    <div class="mb-3">
+        <label>Название компаний</label>
+        <input class="form-control form-control-lg"
+        placeholder="Name of User" name="companyNamme"
+        #companyNamme="ngModel"[(ngModel)]="service.formData.companyNamme" required>
+    </div>
+    <div class="mb-3">
+        <label>Уникальный номер компаний</label>
+        <input class="form-control form-control-lg"
+        placeholder="Last of User" name="companyId"
+        #companyId="ngModel"[(ngModel)]="service.formData.companyIdentity" required>
+    </div>
+    <div class="d-grid">
+       <button class="btn btn-lg btn-success" type="submit">Submit</button>
+    </div>
+</form>
+        </div>
+    </div>
+</div>
+
+

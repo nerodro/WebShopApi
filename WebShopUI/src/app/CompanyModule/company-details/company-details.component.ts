@@ -14,7 +14,21 @@ export class CompanyDetailsComponent {
     this.service.allProduct();
   }
   populateForm(selectedRecord: CompanyDetail){
-    this.router.navigate(['/product/viewproduct']),
+    this.router.navigate(['/company/viewcompany']),
     this.service.formData = Object.assign({},selectedRecord)
+  }
+  populateFormEdit(selectedRecord: CompanyDetail){
+    this.router.navigate(['comapy/addcompany']),
+    this.service.formData = Object.assign({},selectedRecord)
+  }
+  deleteproduct(id:number){
+    this.service.DeleteComapyn(id)
+    .subscribe({
+      next:res=>{
+        window.location.reload()
+       this.service.list = res as CompanyDetail[];
+      },
+      error:err=>{console.log(err, this.service.formData)}
+    })
   }
 }

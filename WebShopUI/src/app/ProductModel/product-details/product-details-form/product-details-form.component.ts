@@ -15,7 +15,6 @@ export class ProductDetailsFormComponent {
     if(form.valid){
     if(this.service.formData.id != 0)
     this.populate
-
   }
   
   }

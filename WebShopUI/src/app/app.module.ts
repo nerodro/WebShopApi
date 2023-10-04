@@ -21,6 +21,8 @@ import { CategoryDetailsComponent } from './CategoryModule/category-details/cate
 import { RegisterDetailsComponent } from './AccountModule/register-details/register-details.component';
 import { LoginDetailsComponent } from './AccountModule/login-details/login-details.component';
 import { ProductsForCategoryComponent } from './ProductModel/product-details/products-for-category/products-for-category.component';
+import { AddCompanyComponent } from './CompanyModule/company-details/add-company/add-company.component';
+import { ViewCompanyComponent } from './CompanyModule/company-details/view-company/view-company.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +41,8 @@ import { ProductsForCategoryComponent } from './ProductModel/product-details/pro
     RegisterDetailsComponent,
     LoginDetailsComponent,
     ProductsForCategoryComponent,
+    AddCompanyComponent,
+    ViewCompanyComponent,
   ],
   imports: [
     BrowserModule,

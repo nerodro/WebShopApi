@@ -14,8 +14,12 @@ export class ProductDetailsAllviewComponent {
     this.service.allProduct();
   }
   populateForm(selectedRecord: ProductDetail){
-    this.router.navigate(['/product/viewproduct']),
-    this.service.formData = Object.assign({},selectedRecord)
+    this.service.viewproduct(selectedRecord).subscribe({
+      next:res=>{
+      this.router.navigate(['/product/viewproduct'])
+      this.service.formData = Object.assign({},selectedRecord)
+      }
+    })
   }
   populateFormEdit(selectedRecord: ProductDetail){
     this.router.navigate(['/product/addproduct']),
